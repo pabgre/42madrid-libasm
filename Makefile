@@ -6,11 +6,11 @@
 #    By: pablo <pablo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/26 12:10:54 by pablo             #+#    #+#              #
-#    Updated: 2020/08/26 16:48:57 by pablo            ###   ########.fr        #
+#    Updated: 2020/08/27 14:34:58 by pablo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		=	ft_strlen.s ft_strcmp.s ft_strcpy.s
+SRCS		=	ft_strlen.s ft_strcmp.s ft_strcpy.s ft_write.s ft_read.s ft_strdup.s
 OBJS		=	$(SRCS:.s=.o)
 
 NA			=	nasm
