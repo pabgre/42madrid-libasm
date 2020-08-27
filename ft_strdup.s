@@ -6,7 +6,7 @@
 #    By: pablo <pablo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/27 14:09:06 by pablo             #+#    #+#              #
-#    Updated: 2020/08/27 21:09:33 by pablo            ###   ########.fr        #
+#    Updated: 2020/08/27 21:21:02 by pablo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,6 @@ copy_copy:
 			jz		return
 			jmp		increment
 error:
-			xor		rax, rax
+			mov		rax, 0
 return:
 			ret
