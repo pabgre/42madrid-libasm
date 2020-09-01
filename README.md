@@ -1,5 +1,7 @@
 # Libasm
 
+Linked Github and GitLab
+
 * [X] ft_strlen
 * [X] ft_strcpy
 * [X] ft_strcmp
