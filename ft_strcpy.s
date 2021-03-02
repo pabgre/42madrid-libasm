@@ -1,38 +1,24 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_strcpy.s                                        :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: pablo <pablo@student.42.fr>                +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/08/27 14:07:45 by pablo             #+#    #+#              #
-#    Updated: 2020/08/27 14:07:49 by pablo            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+section	.text
+global	_ft_strcpy
 
-			section	.text
-			global	ft_strcpy
-
-; delete RDX, RCX, RAX
-
-ft_strcpy:          ; des = rdi, src = rsi
-        mov rdx,0
-        mov rcx,0
-        cmp rsi, 0
-        jz null
-        jmp copy
+_ft_strcpy:
+		mov rdx, 0		;reset value of rdx to 0
+		mov rcx, 0		; reset value of rcx to 0
+		cmp rsi, 0		; check if rsi is null
+		jz null			; if rsi is null, then jump to null
+		jmp copy		; else, jump to copy
 
 increment:
-        inc rdx
+		inc rdx
 
 copy:
-        mov cl, BYTE[rsi + rdx]
-        cmp cl, 0
-        jz null
-        mov BYTE[rdi + rdx], cl
-        jmp increment
+		mov cl, BYTE[rsi + rdx]		; copy into cl the byte of rsi at index rdx
+		cmp cl, 0					; check if cl is null
+		jz null						; if cl is null then complete the string with null
+		mov BYTE[rdi + rdx], cl		; copy cl into rdi at position rdx
+		jmp increment				; iterate
 
 null:
-        mov BYTE [rdi + rax], 0
-        mov rax, rdi
-        ret
+		mov BYTE [rdi + rdx], 0		; set the last byte of rdi as null
+		mov rax, rdi				; copy rdi to rax
+		ret

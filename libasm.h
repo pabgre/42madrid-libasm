@@ -1,41 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   libasm.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psan-gre <psan-gre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 11:15:33 by psan-gre          #+#    #+#             */
-/*   Updated: 2021/03/02 11:52:09 by psan-gre         ###   ########.fr       */
+/*   Created: 2021/03/02 10:43:01 by psan-gre          #+#    #+#             */
+/*   Updated: 2021/03/02 11:14:51 by psan-gre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef LIBASM_H
+# define LIBASM_H
+# include <string.h>
+# include <errno.h>
 
-#include "libasm.h"
-#include "test.h"
-
-int		main(int argc, char *argv[])
-{
-	int		index;
-
-	if (argc > 1)
-	{
-		index = 1;
-		while (index < argc)
-		{
-			put_test(argv[index]);
-			ft_write(1, "\n", 1);
-			ft_set_color(NORMAL);
-			index++;
-		}
-	}
-	else
-	{
-		test_strlen();
-		test_strcpy();
-		test_strdup();
-		test_strcmp();
-		test_write();
-		test_read();
-	}
-}
+size_t	ft_strlen(const char *s);
+char	*ft_strcpy(char	*dst, const char	*src);
+int		ft_strcmp(const char	*s1, const char	*s2);
+ssize_t	ft_write(int fildes, const void	*buf, size_t nbytes);
+ssize_t	ft_read(int fildes, void *buf, size_t nbytes);
+char	*ft_strdup(const char	*s1);
+#endif

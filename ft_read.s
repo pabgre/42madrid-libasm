@@ -1,20 +1,18 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_read.s                                          :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: pablo <pablo@student.42.fr>                +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/08/27 12:39:38 by pablo             #+#    #+#              #
-#    Updated: 2020/08/27 13:59:21 by pablo            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
-        global ft_read
-        section   .text
+section   .text
+global _ft_read
+extern ___error
+_ft_read:
+        mov			rax, 0x2000003			; system call for read
+        syscall								; invoke operating system to do the read
+		jz error							; if syscall returns negative value jump to error
+		ret
 
-ft_read: 
-        mov       rax, 0                  ; system call for read
-        syscall                           ; invoke operating system to do the read
-        cmp rax, -1
-        ret
+error:
+	mov rdx, rax							; copy rax to rdx
+	push rdx								; push rdx to the stack
+	call ___error							; call ___error
+	pop rdx									; obtain rdx from the stack
+	mov [rax], rdx							; put rdx value where rax points
+	mov rax, -1								; set rax value to -1
+	ret

@@ -1,19 +1,18 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    ft_write.s                                         :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: pablo <pablo@student.42.fr>                +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/08/27 12:39:38 by pablo             #+#    #+#              #
-#    Updated: 2020/08/27 13:39:08 by pablo            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+section   .text
+global _ft_write
+extern ___error
 
-        global ft_write
-        section   .text
+_ft_write:
+        mov			rax, 0x2000004			; system call for read
+        syscall								; invoke operating system to do the read
+		jc error							; jump to error handler
+		ret
 
-ft_write: 
-        mov       rax, 1                  ; system call for write
-        syscall                           ; invoke operating system to do the write
-        ret
+error:
+	mov rdx, rax							; copy rax to rdx
+	push rdx								; push rdx to the stack
+	call ___error							; call ___error
+	pop rdx									; obtain rdx from the stack
+	mov [rax], rdx							; put rdx value where rax points
+	mov rax, -1								; set rax value to -1
+	ret
