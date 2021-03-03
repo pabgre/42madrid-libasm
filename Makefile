@@ -6,7 +6,7 @@
 #    By: psan-gre <psan-gre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/26 12:10:54 by pablo             #+#    #+#              #
-#    Updated: 2021/03/02 15:20:58 by psan-gre         ###   ########.fr        #
+#    Updated: 2021/03/02 17:02:41 by psan-gre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ clean:
 				rm -rf $(OBJS)
 
 fclean:			clean
-				rm -rf $(NAME) ./$(TEST)
+				rm -rf $(NAME) ./$(TEST) ./test2.out
 
 re:				fclean $(NAME)
 
@@ -39,7 +39,7 @@ test:			$(NAME)
 				./$(TEST)
 
 test2: 			$(NAME)
-				clang -o $(TEST)2 tester2/*.c -L. -lasm -lftprintf
-				./$(TEST)2
+				clang -o test2.out tester2/*.c -L. -lasm -lftprintf
+				./test2.out
 
 .PHONY:			clean fclean re test

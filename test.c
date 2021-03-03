@@ -6,7 +6,7 @@
 /*   By: psan-gre <psan-gre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 11:10:54 by psan-gre          #+#    #+#             */
-/*   Updated: 2021/03/02 14:39:22 by psan-gre         ###   ########.fr       */
+/*   Updated: 2021/03/02 16:57:49 by psan-gre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,6 @@ void	test_strcmp(void)
 	ft_printf("SY CMP : %d\n", strcmp(str, ""));
 	ft_printf("MY CMP : %d\n", ft_strcmp(str, "1234567"));
 	ft_printf("SY CMP : %d\n", strcmp(str, "1234567"));
-	ft_printf("MY CMP : %d\n", ft_strcmp("", "when"));
-	ft_printf("SY CMP : %d\n", strcmp("", "when"));
-	ft_printf("MY CMP : %d\n", ft_strcmp("What", "When"));
-	ft_printf("SY CMP : %d\n", strcmp("What", "When"));
-	ft_printf("MY CMP : %d\n", ft_strcmp("same", "same"));
-	ft_printf("SY CMP : %d\n", strcmp("same", "same"));
-	ft_printf("MY CMP : %d\n", ft_strcmp("When", "What"));
-	ft_printf("SY CMP : %d\n", strcmp("When", "What"));
-	ft_printf("MY CMP : %d\n", ft_strcmp("similar", "similar but"));
-	ft_printf("SY CMP : %d\n", strcmp("similar", "similar but"));
 }
 
 void	test_strdup(void)
